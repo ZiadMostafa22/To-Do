@@ -19,7 +19,7 @@ class TaskItem extends StatelessWidget {
           margin: EdgeInsets.all(12),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15.r),
-            color: ColorsManeger.white, // Use BoxDecoration for color
+            color: ColorsManeger.white,
           ),
           child: Slidable(
             startActionPane: ActionPane(
@@ -49,7 +49,7 @@ class TaskItem extends StatelessWidget {
               ],
             ),
             child: Padding(
-              // Wrap with padding to avoid content touching edges
+
               padding: EdgeInsets.all(17.r),
               child: Row(
                 children: [
