@@ -4,9 +4,11 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:todo/core/utils/app_styles.dart';
 import 'package:todo/core/utils/color_manager.dart';
 import 'package:todo/core/utils/date_utils.dart';
+import 'package:todo/databsae_manager/model/todo_dm.dart';
 
 class TaskItem extends StatelessWidget {
-  const TaskItem({super.key});
+   TaskItem({super.key , required this.todo});
+  TodoDM todo;
 
   @override
   Widget build(BuildContext context) {
@@ -68,11 +70,11 @@ class TaskItem extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Task Title',
+                          todo.title,
                           style: AppLightStyles.taskTitle,
                         ),
                         Text(
-                          'Task Description',
+                          todo.description,
                           style: AppLightStyles.taskDescription,
                         ),
                         Text(
