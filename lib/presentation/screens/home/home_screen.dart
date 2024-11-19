@@ -5,22 +5,23 @@ import 'package:todo/presentation/screens/home/tabs/settings_tab/settings_tab.da
 import 'package:todo/presentation/screens/home/tabs/tasks_tab/task_bottom_sheet/task_bottom_sheet.dart';
 import 'package:todo/presentation/screens/home/tabs/tasks_tab/tasks_tab.dart';
 
-
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
-
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int currentIndex = 0;
 
-  List <Widget> tabs = [
+  int currentIndex = 0;
+  List<Widget> tabs = [
     TasksTab(),
     SettingsTab(),
   ];
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,47 +39,33 @@ class _HomeScreenState extends State<HomeScreen> {
   buildBottomNavBar() => BottomAppBar(
     notchMargin: 8,
     child: BottomNavigationBar(
-
       backgroundColor: Colors.transparent,
-            elevation: 0,
-            currentIndex: currentIndex,
-            onTap: (index) {
-              currentIndex = index;
-              setState(() {});
-            },
-            iconSize: 35,
-            items: const [
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.list), label: StringManager.listLabel),
-
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.settings), label: StringManager.settingsLabel),
-            ]),
+      elevation: 0,
+      currentIndex: currentIndex,
+      onTap: (index) {
+        setState(() {
+          currentIndex = index;
+        });
+      },
+      iconSize: 35,
+      items: const [
+        BottomNavigationBarItem(
+            icon: Icon(Icons.list), label: StringManager.listLabel),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.settings), label: StringManager.settingsLabel),
+      ],
+    ),
   );
 
   buildFloatActionButton() => FloatingActionButton(
-        onPressed: () {
-          showTaskBottomSheet();
-        },
-        child:const Icon(Icons.add ,size: 35,),
-      );
+    onPressed: () {
+      showTaskBottomSheet();
+    },
+    child:const Icon(Icons.add ,size: 35,),
+  );
 
-
-
-
+  // Corrected showTaskBottomSheet method
   void showTaskBottomSheet() {
- showModalBottomSheet(context: context, builder: (context) => TaskBottomSheet.show(),);
+    showModalBottomSheet(context: context, builder: (context) => TaskBottomSheet.show(),);
   }
-
-
-// void onTapped (int index)
-// {
-//   currentIndex=index;
-//   setState(() {
-//
-//   });
-// }
-//
 }
-
-
