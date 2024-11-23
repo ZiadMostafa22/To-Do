@@ -25,7 +25,7 @@ class TaskItem extends StatelessWidget {
           margin: EdgeInsets.all(12),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15.r),
-            color: ColorsManeger.white,
+            color: ColorsManager.white,
           ),
           child: Slidable(
             startActionPane: ActionPane(
@@ -52,7 +52,7 @@ class TaskItem extends StatelessWidget {
                   Navigator.of(context).pushNamed(RoutesManager.editTask , arguments: todo);
 
                   },
-                  backgroundColor: ColorsManeger.blue,
+                  backgroundColor: ColorsManager.blue,
                   foregroundColor: Colors.white,
                   icon: Icons.edit,
                   label: 'Edit',
@@ -70,7 +70,7 @@ class TaskItem extends StatelessWidget {
                     height: 70.h,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.r),
-                      color: ColorsManeger.blue,
+                      color: ColorsManager.blue,
                     ),
                   ),
                   SizedBox(width: 10.w),
@@ -101,10 +101,15 @@ class TaskItem extends StatelessWidget {
                     ),
                     width: 50.w,
                     height: 30.h,
-                    child: Icon(
-                      Icons.check,
-                      color: Colors.white,
-                      size: 25.sp,
+                    child: InkWell(
+                      onTap: () {
+                        deleteTodoFromFireStore();
+                      },
+                      child: Icon(
+                        Icons.check,
+                        color: Colors.white,
+                        size: 25.sp,
+                      ),
                     ),
                   ),
                 ],
