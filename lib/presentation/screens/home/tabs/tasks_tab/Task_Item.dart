@@ -1,14 +1,18 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:todo/core/utils/app_styles.dart';
 import 'package:todo/core/utils/color_manager.dart';
 import 'package:todo/core/utils/date_utils.dart';
+import 'package:todo/core/utils/routes_manager.dart';
 import 'package:todo/databsae_manager/model/todo_dm.dart';
 
 class TaskItem extends StatelessWidget {
-   TaskItem({super.key , required this.todo});
+   TaskItem({super.key , required this.todo , required this.onDeletedTask});
   TodoDM todo;
+
+  Function onDeletedTask;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +33,10 @@ class TaskItem extends StatelessWidget {
               children: [
                 SlidableAction(
                   flex: 2,
-                  onPressed: (context) {},
+                  onPressed: (context) {
+                    deleteTodoFromFireStore();
+                    onDeletedTask();
+                  },
                   backgroundColor: Colors.red,
                   foregroundColor: Colors.white,
                   icon: Icons.delete,
@@ -41,7 +48,10 @@ class TaskItem extends StatelessWidget {
                 ),
                 SlidableAction(
                   flex: 2,
-                  onPressed: (context) {},
+                  onPressed: (context) {
+                  Navigator.of(context).pushNamed(RoutesManager.editTask , arguments: todo);
+
+                  },
                   backgroundColor: ColorsManeger.blue,
                   foregroundColor: Colors.white,
                   icon: Icons.edit,
@@ -106,7 +116,14 @@ class TaskItem extends StatelessWidget {
     );
   }
 
+void deleteTodoFromFireStore () async
+{
+ CollectionReference todoCollection =  FirebaseFirestore.instance.collection(TodoDM.collectionName);
+ DocumentReference todoDoc =  todoCollection.doc(todo.id);
+await  todoDoc.delete();
+onDeletedTask();
 
+}
 }
 
 
