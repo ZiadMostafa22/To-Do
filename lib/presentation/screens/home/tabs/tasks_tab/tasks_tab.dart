@@ -70,32 +70,32 @@ class _TasksTabState extends State<TasksTab> {
         dayNumStyle: GoogleFonts.poppins(
           fontSize: 18.sp,
           fontWeight: FontWeight.w700,
-          color: ColorsManeger.blue,
+          color: ColorsManager.blue,
         ),
         dayStrStyle: GoogleFonts.poppins(
           fontSize: 18.sp,
           fontWeight: FontWeight.w700,
-          color: ColorsManeger.blue,
+          color: ColorsManager.blue,
         ),
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(5)),
-          color: ColorsManeger.white,
+          color: ColorsManager.white,
         ),
       ),
       inactiveDayStyle: DayStyle(
         dayNumStyle: GoogleFonts.poppins(
           fontSize: 18.sp,
           fontWeight: FontWeight.w700,
-          color: ColorsManeger.black,
+          color: ColorsManager.black,
         ),
         dayStrStyle: GoogleFonts.poppins(
           fontSize: 18.sp,
           fontWeight: FontWeight.w700,
-          color: ColorsManeger.black,
+          color: ColorsManager.black,
         ),
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(5)),
-          color: ColorsManeger.white,
+          color: ColorsManager.white,
         ),
       ),
     ),
