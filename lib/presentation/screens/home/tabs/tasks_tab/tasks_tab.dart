@@ -39,7 +39,11 @@ class _TasksTabState extends State<TasksTab> {
 
            Expanded(
              child: ListView.builder(itemBuilder: (context, index) {
-               return TaskItem(todo: todoslist[index],);
+               return TaskItem(todo: todoslist[index], onDeletedTask:()
+                 {
+                   getTodosFromFireStore();
+                 },);
+
              },
               itemCount: todoslist.length,),
            )
@@ -98,7 +102,7 @@ class _TasksTabState extends State<TasksTab> {
   );
 
   getTodosFromFireStore() async {
-    // Fetch tasks from Firestore based on the selected date
+
     CollectionReference todoCollection =
     FirebaseFirestore.instance.collection(TodoDM.collectionName);
     QuerySnapshot collectionSnapShot = await todoCollection.get();
@@ -110,7 +114,7 @@ class _TasksTabState extends State<TasksTab> {
       },
       ).toList();
 
-      // Filter todos for the selected date
+
       todoslist = todoslist.where((todo) =>
       todo.dateTime.day == calenderSelectedDate.day &&
           todo.dateTime.month == calenderSelectedDate.month &&
