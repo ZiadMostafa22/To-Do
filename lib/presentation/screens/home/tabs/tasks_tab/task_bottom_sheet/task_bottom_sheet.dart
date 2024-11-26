@@ -19,7 +19,8 @@ class _TaskBottomSheetState extends State<TaskBottomSheet> {
 
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
-  GlobalKey<FormState> formKey = GlobalKey(); // Single Form key
+  final formKey = GlobalKey<FormState>();  // No issue if used once
+// Single Form key
 
 
   @override
@@ -137,7 +138,9 @@ class _TaskBottomSheetState extends State<TaskBottomSheet> {
     );
 
     documentReference.set(todo.toFireStore()).then(
-          (_) {},
+          (_) {
+          //  Navigator.pop(context);
+          },
     ).onError(
           (error, stackTrace) {},
     ).timeout(

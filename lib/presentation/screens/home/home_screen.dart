@@ -13,14 +13,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   int currentIndex = 0;
   List<Widget> tabs = [
     TasksTab(),
     SettingsTab(),
   ];
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -59,13 +56,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
   buildFloatActionButton() => FloatingActionButton(
     onPressed: () {
-      showTaskBottomSheet();
+      showTaskBottomSheet();  // Corrected method call
     },
-    child:const Icon(Icons.add ,size: 35,),
+    child: const Icon(Icons.add, size: 35),
   );
 
   // Corrected showTaskBottomSheet method
   void showTaskBottomSheet() {
-    showModalBottomSheet(context: context, builder: (context) => TaskBottomSheet.show(),);
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return TaskBottomSheet();
+      },
+    );
   }
 }

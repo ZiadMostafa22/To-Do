@@ -50,4 +50,10 @@ class AppLightStyles
     fontWeight: FontWeight.w700,
     color: ColorsManager.black,
   );
+
+  static TextStyle? AuthStyle = GoogleFonts.inter(
+    fontSize: 15,
+    fontWeight: FontWeight.w400,
+    color: Colors.white,
+  );
 }
