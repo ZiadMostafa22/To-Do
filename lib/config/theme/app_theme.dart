@@ -6,21 +6,21 @@ class AppTheme {
   static ThemeData light = ThemeData(
       useMaterial3: false,
       appBarTheme: AppBarTheme(
-        backgroundColor: ColorsManeger.blue,
+        backgroundColor: ColorsManager.blue,
         toolbarHeight: 120,
         titleTextStyle: AppLightStyles.appBarTextStyle,
       ),
-      scaffoldBackgroundColor: ColorsManeger.background,
+      scaffoldBackgroundColor: ColorsManager.background,
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          backgroundColor: ColorsManeger.white,
+          backgroundColor: ColorsManager.white,
           type: BottomNavigationBarType.fixed,
-          selectedItemColor: ColorsManeger.blue,
-          unselectedItemColor: ColorsManeger.grey),
+          selectedItemColor: ColorsManager.blue,
+          unselectedItemColor: ColorsManager.grey),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: ColorsManeger.blue,
+        backgroundColor: ColorsManager.blue,
         shape: StadiumBorder(
             side: BorderSide(
-          color: ColorsManeger.white,
+          color: ColorsManager.white,
           width: 4,
         )),
       ),
